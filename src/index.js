@@ -2,7 +2,7 @@ import { tokTypes as tt, TokenType } from "acorn";
 
 const keyword = "assert";
 
-export default function importAssertions(Parser) {
+export function importAssertions(Parser) {
   return class extends Parser {
     constructor(...args) {
       super(...args);
@@ -28,7 +28,7 @@ export default function importAssertions(Parser) {
       this.next();
       // import '...'
       if (this.type === tt.string) {
-        node.specifiers = empty;
+        node.specifiers = [];
         node.source = this.parseExprAtom();
       } else {
         node.specifiers = this.parseImportSpecifiers();
