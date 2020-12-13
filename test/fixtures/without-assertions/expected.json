@@ -8,7 +8,7 @@
       "column": 0
     },
     "end": {
-      "line": 2,
+      "line": 3,
       "column": 0
     }
   },
@@ -20,7 +20,7 @@
     {
       "type": "ImportDeclaration",
       "start": 0,
-      "end": 54,
+      "end": 26,
       "loc": {
         "start": {
           "line": 1,
@@ -28,18 +28,18 @@
         },
         "end": {
           "line": 1,
-          "column": 54
+          "column": 26
         }
       },
       "range": [
         0,
-        54
+        26
       ],
       "specifiers": [
         {
           "type": "ImportDefaultSpecifier",
           "start": 7,
-          "end": 11,
+          "end": 8,
           "loc": {
             "start": {
               "line": 1,
@@ -47,17 +47,17 @@
             },
             "end": {
               "line": 1,
-              "column": 11
+              "column": 8
             }
           },
           "range": [
             7,
-            11
+            8
           ],
           "local": {
             "type": "Identifier",
             "start": 7,
-            "end": 11,
+            "end": 8,
             "loc": {
               "start": {
                 "line": 1,
@@ -65,100 +65,119 @@
               },
               "end": {
                 "line": 1,
-                "column": 11
+                "column": 8
               }
             },
             "range": [
               7,
-              11
+              8
             ],
-            "name": "json"
+            "name": "a"
           }
         }
       ],
       "source": {
         "type": "Literal",
-        "start": 17,
-        "end": 29,
+        "start": 14,
+        "end": 26,
         "loc": {
           "start": {
             "line": 1,
-            "column": 17
+            "column": 14
           },
           "end": {
             "line": 1,
-            "column": 29
+            "column": 26
           }
         },
         "range": [
-          17,
-          29
+          14,
+          26
         ],
         "value": "./foo.json",
         "raw": "\"./foo.json\""
+      }
+    },
+    {
+      "type": "ImportDeclaration",
+      "start": 27,
+      "end": 54,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 0
+        },
+        "end": {
+          "line": 2,
+          "column": 27
+        }
       },
-      "assertions": [
+      "range": [
+        27,
+        54
+      ],
+      "specifiers": [
         {
-          "type": "ImportAttribute",
-          "start": 39,
-          "end": 51,
+          "type": "ImportDefaultSpecifier",
+          "start": 34,
+          "end": 35,
           "loc": {
             "start": {
-              "line": 1,
-              "column": 39
+              "line": 2,
+              "column": 7
             },
             "end": {
-              "line": 1,
-              "column": 51
+              "line": 2,
+              "column": 8
             }
           },
           "range": [
-            39,
-            51
+            34,
+            35
           ],
-          "key": {
+          "local": {
             "type": "Identifier",
-            "start": 39,
-            "end": 43,
+            "start": 34,
+            "end": 35,
             "loc": {
               "start": {
-                "line": 1,
-                "column": 39
+                "line": 2,
+                "column": 7
               },
               "end": {
-                "line": 1,
-                "column": 43
+                "line": 2,
+                "column": 8
               }
             },
             "range": [
-              39,
-              43
+              34,
+              35
             ],
-            "name": "type"
-          },
-          "value": {
-            "type": "Literal",
-            "start": 45,
-            "end": 51,
-            "loc": {
-              "start": {
-                "line": 1,
-                "column": 45
-              },
-              "end": {
-                "line": 1,
-                "column": 51
-              }
-            },
-            "range": [
-              45,
-              51
-            ],
-            "value": "json",
-            "raw": "\"json\""
+            "name": "b"
           }
         }
-      ]
+      ],
+      "source": {
+        "type": "Literal",
+        "start": 41,
+        "end": 53,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 14
+          },
+          "end": {
+            "line": 2,
+            "column": 26
+          }
+        },
+        "range": [
+          41,
+          53
+        ],
+        "value": "./foo.json",
+        "raw": "\"./foo.json\""
+      }
     }
   ],
   "sourceType": "module"

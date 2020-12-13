@@ -1,5 +1,5 @@
 import * as acorn from 'acorn';
-import importAssertions from '../src/index';
+import { importAssertions } from '../src/index';
 
 const Parser = acorn.Parser.extend(importAssertions);
 

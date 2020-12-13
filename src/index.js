@@ -37,8 +37,6 @@ export function importAssertions(Parser) {
           this.type === tt.string ? this.parseExprAtom() : this.unexpected();
       }
 
-      const importDeclaration = this.finishNode(node, "ImportDeclaration");
-
       if (this.type === this.assertToken) {
         this.next();
         const assertions = this.parseImportAssertions();
@@ -47,7 +45,7 @@ export function importAssertions(Parser) {
         }
       }
       this.semicolon();
-      return importDeclaration;
+      return this.finishNode(node, "ImportDeclaration");
     }
 
     parseImportAssertions() {
