@@ -2,18 +2,21 @@
   "name": "acorn-import-assertions",
   "version": "1.1.0",
   "description": "Support for import assertions in acorn",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "module": "src/index.js",
   "scripts": {
-    "test": "mocha ./test/index.js"
+    "test": "mocha ./test/index.js",
+    "prepublish": "babel ./src --out-dir ./lib",
+    "publish": "npm publish"
   },
   "author": "Sven Sauleau <sven@sauleau.com>",
   "license": "MIT",
   "devDependencies": {
-    "acorn": "^8",
+    "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.10",
     "@babel/register": "^7.12.10",
+    "acorn": "^8",
     "chai": "^4.2.0",
     "mocha": "^8.2.1"
   },
