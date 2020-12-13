@@ -2,7 +2,7 @@ import { tokTypes as tt, TokenType } from "acorn";
 
 const keyword = "assert";
 
-export default function dynamicImport(Parser) {
+export default function importAssertions(Parser) {
   return class extends Parser {
     constructor(...args) {
       super(...args);
