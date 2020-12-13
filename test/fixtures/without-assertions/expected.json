@@ -1,7 +1,7 @@
 {
   "type": "Program",
   "start": 0,
-  "end": 55,
+  "end": 57,
   "loc": {
     "start": {
       "line": 1,
@@ -14,7 +14,7 @@
   },
   "range": [
     0,
-    55
+    57
   ],
   "body": [
     {
@@ -101,7 +101,7 @@
     {
       "type": "ImportDeclaration",
       "start": 27,
-      "end": 54,
+      "end": 56,
       "loc": {
         "start": {
           "line": 2,
@@ -109,74 +109,94 @@
         },
         "end": {
           "line": 2,
-          "column": 27
+          "column": 29
         }
       },
       "range": [
         27,
-        54
+        56
       ],
       "specifiers": [
         {
-          "type": "ImportDefaultSpecifier",
-          "start": 34,
-          "end": 35,
+          "type": "ImportSpecifier",
+          "start": 36,
+          "end": 39,
           "loc": {
             "start": {
               "line": 2,
-              "column": 7
+              "column": 9
             },
             "end": {
               "line": 2,
-              "column": 8
+              "column": 12
             }
           },
           "range": [
-            34,
-            35
+            36,
+            39
           ],
-          "local": {
+          "imported": {
             "type": "Identifier",
-            "start": 34,
-            "end": 35,
+            "start": 36,
+            "end": 39,
             "loc": {
               "start": {
                 "line": 2,
-                "column": 7
+                "column": 9
               },
               "end": {
                 "line": 2,
-                "column": 8
+                "column": 12
               }
             },
             "range": [
-              34,
-              35
+              36,
+              39
             ],
-            "name": "b"
+            "name": "foo"
+          },
+          "local": {
+            "type": "Identifier",
+            "start": 36,
+            "end": 39,
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 9
+              },
+              "end": {
+                "line": 2,
+                "column": 12
+              }
+            },
+            "range": [
+              36,
+              39
+            ],
+            "name": "foo"
           }
         }
       ],
       "source": {
         "type": "Literal",
-        "start": 41,
-        "end": 53,
+        "start": 47,
+        "end": 55,
         "loc": {
           "start": {
             "line": 2,
-            "column": 14
+            "column": 20
           },
           "end": {
             "line": 2,
-            "column": 26
+            "column": 28
           }
         },
         "range": [
-          41,
-          53
+          47,
+          55
         ],
-        "value": "./foo.json",
-        "raw": "\"./foo.json\""
+        "value": "./f.js",
+        "raw": "\"./f.js\""
       }
     }
   ],
