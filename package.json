@@ -6,6 +6,7 @@
   "module": "src/index.js",
   "scripts": {
     "test": "mocha ./test/index.js",
+    "watch": "babel ./src --out-dir ./lib --watch",
     "prepublish": "babel ./src --out-dir ./lib"
   },
   "author": "Sven Sauleau <sven@sauleau.com>",
@@ -20,7 +21,7 @@
     "mocha": "^8.2.1"
   },
   "peerDependencies": {
-    "acorn": "^6.1.0 || ^7 || ^8"
+    "acorn": "^8"
   },
   "repository": {
     "type": "git",

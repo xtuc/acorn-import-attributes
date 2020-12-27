@@ -13,6 +13,13 @@ export function importAssertions(Parser) {
       return this.input.charCodeAt(i);
     }
 
+    _eat(t) {
+      if (this.type !== t) {
+        this.unexpected();
+      }
+      this.next()
+    }
+
     readToken(code) {
       for (let i = 0; i < keyword.length; i++) {
         if (this._codeAt(this.pos + i) !== keyword.charCodeAt(i)) {
@@ -49,9 +56,9 @@ export function importAssertions(Parser) {
     }
 
     parseImportAssertions() {
-      this.eat(tt.braceL);
+      this._eat(tt.braceL);
       const attrs = this.parseAssertEntries();
-      this.eat(tt.braceR);
+      this._eat(tt.braceR);
       return attrs;
     }
 
@@ -87,7 +94,6 @@ export function importAssertions(Parser) {
           this.raise(this.pos, "Duplicated key in assertions")
         }
         attrNames.add(node.key.name);
-
 
         if (this.type !== tt.string) {
           this.raise(this.pos, "Only string is supported as an assertion value")
