@@ -13,6 +13,15 @@ export function importAssertions(Parser) {
       return this.input.charCodeAt(i);
     }
 
+    _eat(t) {
+      // FIXME: are yarn link working with peerDependencies?
+      // if (this.type !== t) {
+      if (this.type.label !== t.label) {
+        this.unexpected();
+      }
+      this.next()
+    }
+
     readToken(code) {
       for (let i = 0; i < keyword.length; i++) {
         if (this._codeAt(this.pos + i) !== keyword.charCodeAt(i)) {
@@ -34,7 +43,9 @@ export function importAssertions(Parser) {
         node.specifiers = this.parseImportSpecifiers();
         this.expectContextual("from");
         node.source =
-          this.type === tt.string ? this.parseExprAtom() : this.unexpected();
+          this.type.label === tt.string.label ? this.parseExprAtom() : this.unexpected();
+          // this.type === tt.string ? this.parseExprAtom() : this.unexpected();
+          // FIXME: are yarn link working with peerDependencies?
       }
 
       if (this.type === this.assertToken) {
@@ -49,9 +60,9 @@ export function importAssertions(Parser) {
     }
 
     parseImportAssertions() {
-      this.eat(tt.braceL);
+      this._eat(tt.braceL);
       const attrs = this.parseAssertEntries();
-      this.eat(tt.braceR);
+      this._eat(tt.braceR);
       return attrs;
     }
 
@@ -88,8 +99,9 @@ export function importAssertions(Parser) {
         }
         attrNames.add(node.key.name);
 
-
-        if (this.type !== tt.string) {
+        // FIXME: are yarn link working with peerDependencies?
+        // if (this.type !== tt.string) {
+        if (this.type.label !== tt.string.label) {
           this.raise(this.pos, "Only string is supported as an assertion value")
         }
 
