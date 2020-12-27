@@ -7,7 +7,7 @@ export default function testPlugin(code) {
   let result;
   try {
     result = Parser.parse(code, {
-      ecmaVersion: 7,
+      ecmaVersion: 12,
       locations: true,
       ranges: true,
       sourceType: 'module',

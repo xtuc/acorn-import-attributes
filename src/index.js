@@ -31,6 +31,22 @@ export function importAssertions(Parser) {
       return this.finishToken(this.assertToken);
     }
 
+    parseDynamicImport(node) {
+      this.next() // skip `(`
+
+      // Parse node.source.
+      node.source = this.parseMaybeAssign()
+
+      if (this.eat(tt.comma)) {
+        const obj = this.parseObj(false);
+        node.arguments = [obj];
+      }
+      this._eat(tt.parenR);
+      this.semicolon();
+
+      return this.finishNode(node, "ImportExpression")
+    }
+
     parseImport(node) {
       this.next();
       // import '...'

@@ -1,0 +1,234 @@
+{
+  "type": "Program",
+  "start": 0,
+  "end": 55,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 3,
+      "column": 0
+    }
+  },
+  "range": [
+    0,
+    55
+  ],
+  "body": [
+    {
+      "type": "ExpressionStatement",
+      "start": 0,
+      "end": 53,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 53
+        }
+      },
+      "range": [
+        0,
+        53
+      ],
+      "expression": {
+        "type": "ImportExpression",
+        "start": 0,
+        "end": 53,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 53
+          }
+        },
+        "range": [
+          0,
+          53
+        ],
+        "source": {
+          "type": "Literal",
+          "start": 7,
+          "end": 17,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 7
+            },
+            "end": {
+              "line": 1,
+              "column": 17
+            }
+          },
+          "range": [
+            7,
+            17
+          ],
+          "value": "foo.json",
+          "raw": "\"foo.json\""
+        },
+        "arguments": [
+          {
+            "type": "ObjectExpression",
+            "start": 19,
+            "end": 51,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 19
+              },
+              "end": {
+                "line": 1,
+                "column": 51
+              }
+            },
+            "range": [
+              19,
+              51
+            ],
+            "properties": [
+              {
+                "type": "Property",
+                "start": 21,
+                "end": 49,
+                "loc": {
+                  "start": {
+                    "line": 1,
+                    "column": 21
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 49
+                  }
+                },
+                "range": [
+                  21,
+                  49
+                ],
+                "method": false,
+                "shorthand": false,
+                "computed": false,
+                "key": {
+                  "type": "Literal",
+                  "start": 21,
+                  "end": 29,
+                  "loc": {
+                    "start": {
+                      "line": 1,
+                      "column": 21
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 29
+                    }
+                  },
+                  "range": [
+                    21,
+                    29
+                  ],
+                  "value": "assert",
+                  "raw": "\"assert\""
+                },
+                "value": {
+                  "type": "ObjectExpression",
+                  "start": 31,
+                  "end": 49,
+                  "loc": {
+                    "start": {
+                      "line": 1,
+                      "column": 31
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 49
+                    }
+                  },
+                  "range": [
+                    31,
+                    49
+                  ],
+                  "properties": [
+                    {
+                      "type": "Property",
+                      "start": 33,
+                      "end": 47,
+                      "loc": {
+                        "start": {
+                          "line": 1,
+                          "column": 33
+                        },
+                        "end": {
+                          "line": 1,
+                          "column": 47
+                        }
+                      },
+                      "range": [
+                        33,
+                        47
+                      ],
+                      "method": false,
+                      "shorthand": false,
+                      "computed": false,
+                      "key": {
+                        "type": "Literal",
+                        "start": 33,
+                        "end": 39,
+                        "loc": {
+                          "start": {
+                            "line": 1,
+                            "column": 33
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 39
+                          }
+                        },
+                        "range": [
+                          33,
+                          39
+                        ],
+                        "value": "type",
+                        "raw": "\"type\""
+                      },
+                      "value": {
+                        "type": "Literal",
+                        "start": 41,
+                        "end": 47,
+                        "loc": {
+                          "start": {
+                            "line": 1,
+                            "column": 41
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 47
+                          }
+                        },
+                        "range": [
+                          41,
+                          47
+                        ],
+                        "value": "json",
+                        "raw": "\"json\""
+                      },
+                      "kind": "init"
+                    }
+                  ]
+                },
+                "kind": "init"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "sourceType": "module"
+}
