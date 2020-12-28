@@ -1,6 +1,6 @@
 {
   "name": "acorn-import-assertions",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "Support for import assertions in acorn",
   "main": "lib/index.js",
   "module": "src/index.js",
