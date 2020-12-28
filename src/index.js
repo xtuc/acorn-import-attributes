@@ -1,5 +1,4 @@
 import { tokTypes as tt, TokenType } from "acorn";
-import { space, leftCurlyBrace } from "charcodes";
 
 const keyword = "assert";
 
@@ -31,7 +30,7 @@ export function importAssertions(Parser) {
 
       // ensure that the word is at the correct location
       // ie `assert{...` or `assert {...`
-      if (this._codeAt(i) !== space && this._codeAt(i) !== leftCurlyBrace) {
+      if (this._codeAt(i) !== 32 && this._codeAt(i) !== 123) {
         return super.readToken(code);
       }
 
