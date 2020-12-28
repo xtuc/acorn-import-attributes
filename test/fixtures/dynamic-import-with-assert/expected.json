@@ -38,7 +38,7 @@
       "expression": {
         "type": "ImportExpression",
         "start": 0,
-        "end": 53,
+        "end": 52,
         "loc": {
           "start": {
             "line": 1,
@@ -46,12 +46,12 @@
           },
           "end": {
             "line": 1,
-            "column": 53
+            "column": 52
           }
         },
         "range": [
           0,
-          53
+          52
         ],
         "source": {
           "type": "Literal",

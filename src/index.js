@@ -49,9 +49,6 @@ export function importAssertions(Parser) {
         node.arguments = [obj];
       }
       this._eat(tt.parenR);
-      if (this.type === tt.semi) {
-        this.next();
-      }
       return this.finishNode(node, "ImportExpression");
     }
 

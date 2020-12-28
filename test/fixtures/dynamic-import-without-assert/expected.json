@@ -159,7 +159,7 @@
       "expression": {
         "type": "ImportExpression",
         "start": 26,
-        "end": 45,
+        "end": 44,
         "loc": {
           "start": {
             "line": 2,
@@ -167,12 +167,12 @@
           },
           "end": {
             "line": 2,
-            "column": 19
+            "column": 18
           }
         },
         "range": [
           26,
-          45
+          44
         ],
         "source": {
           "type": "Literal",
