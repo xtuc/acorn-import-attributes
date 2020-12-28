@@ -26,5 +26,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/xtuc/acorn-import-assertions"
+  },
+  "dependencies": {
+    "charcodes": "^0.2.0"
   }
 }

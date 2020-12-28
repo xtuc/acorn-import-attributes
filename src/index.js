@@ -1,4 +1,5 @@
 import { tokTypes as tt, TokenType } from "acorn";
+import { space, leftCurlyBrace } from "charcodes";
 
 const keyword = "assert";
 
@@ -17,14 +18,21 @@ export function importAssertions(Parser) {
       if (this.type !== t) {
         this.unexpected();
       }
-      this.next()
+      this.next();
     }
 
     readToken(code) {
-      for (let i = 0; i < keyword.length; i++) {
+      let i = 0;
+      for (; i < keyword.length; i++) {
         if (this._codeAt(this.pos + i) !== keyword.charCodeAt(i)) {
           return super.readToken(code);
         }
+      }
+
+      // ensure that the word is at the correct location
+      // ie `assert{...` or `assert {...`
+      if (this._codeAt(i) !== space && this._codeAt(i) !== leftCurlyBrace) {
+        return super.readToken(code);
       }
 
       this.pos += keyword.length;
@@ -32,10 +40,10 @@ export function importAssertions(Parser) {
     }
 
     parseDynamicImport(node) {
-      this.next() // skip `(`
+      this.next(); // skip `(`
 
       // Parse node.source.
-      node.source = this.parseMaybeAssign()
+      node.source = this.parseMaybeAssign();
 
       if (this.eat(tt.comma)) {
         const obj = this.parseObj(false);
@@ -45,7 +53,7 @@ export function importAssertions(Parser) {
       if (this.type === tt.semi) {
         this.next();
       }
-      return this.finishNode(node, "ImportExpression")
+      return this.finishNode(node, "ImportExpression");
     }
 
     parseImport(node) {
@@ -102,18 +110,21 @@ export function importAssertions(Parser) {
 
         // for now we are only allowing `type` as the only allowed module attribute
         if (node.key.name !== "type") {
-          this.raise(this.pos, "The only accepted import assertion is `type`")
+          this.raise(this.pos, "The only accepted import assertion is `type`");
         }
         // check if we already have an entry for an attribute
         // if a duplicate entry is found, throw an error
         // for now this logic will come into play only when someone declares `type` twice
         if (attrNames.has(node.key.name)) {
-          this.raise(this.pos, "Duplicated key in assertions")
+          this.raise(this.pos, "Duplicated key in assertions");
         }
         attrNames.add(node.key.name);
 
         if (this.type !== tt.string) {
-          this.raise(this.pos, "Only string is supported as an assertion value")
+          this.raise(
+            this.pos,
+            "Only string is supported as an assertion value"
+          );
         }
 
         node.value = this.parseLiteral(this.value);
