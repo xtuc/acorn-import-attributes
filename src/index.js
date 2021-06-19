@@ -34,6 +34,13 @@ export function importAssertions(Parser) {
         return super.readToken(code);
       }
 
+      // If we're inside a dynamic import expression we'll parse
+      // the `assert` keyword as a standard object property name
+      // ie `import(""./foo.json", { assert: { type: "json" } })`
+      if (this.type.label === "{") {
+        return super.readToken(code);
+      }
+
       this.pos += keyword.length;
       return this.finishToken(this.assertToken);
     }
