@@ -1,8 +1,14 @@
-import { tokTypes as tt, TokenType } from "acorn";
-
 const keyword = "assert";
 
 export function importAssertions(Parser) {
+  // Use supplied version acorn version if present, to avoid
+  // reference mismatches due to different acorn versions. This
+  // allows this plugin to be used with Rollup which supplies
+  // its own internal version of acorn and thereby sidesteps
+  // the package manager.
+  const acorn = Parser.acorn || require("acorn");
+  const { tokTypes: tt, TokenType } = acorn;
+
   return class extends Parser {
     constructor(...args) {
       super(...args);
