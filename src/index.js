@@ -1,3 +1,5 @@
+import _acorn from "acorn";
+
 const keyword = "assert";
 
 export function importAssertions(Parser) {
@@ -6,7 +8,7 @@ export function importAssertions(Parser) {
   // allows this plugin to be used with Rollup which supplies
   // its own internal version of acorn and thereby sidesteps
   // the package manager.
-  const acorn = Parser.acorn || require("acorn");
+  const acorn = Parser.acorn || _acorn;
   const { tokTypes: tt, TokenType } = acorn;
 
   return class extends Parser {
