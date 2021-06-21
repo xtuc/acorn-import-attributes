@@ -1,0 +1,186 @@
+{
+  "type": "Program",
+  "start": 0,
+  "end": 76,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 2,
+      "column": 0
+    }
+  },
+  "range": [
+    0,
+    76
+  ],
+  "body": [
+    {
+      "type": "ExportNamedDeclaration",
+      "start": 0,
+      "end": 75,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 75
+        }
+      },
+      "range": [
+        0,
+        75
+      ],
+      "declaration": null,
+      "specifiers": [
+        {
+          "type": "ExportSpecifier",
+          "start": 9,
+          "end": 33,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 9
+            },
+            "end": {
+              "line": 1,
+              "column": 33
+            }
+          },
+          "range": [
+            9,
+            33
+          ],
+          "local": {
+            "type": "Identifier",
+            "start": 9,
+            "end": 16,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 9
+              },
+              "end": {
+                "line": 1,
+                "column": 16
+              }
+            },
+            "range": [
+              9,
+              16
+            ],
+            "name": "default"
+          },
+          "exported": {
+            "type": "Identifier",
+            "start": 20,
+            "end": 33,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 20
+              },
+              "end": {
+                "line": 1,
+                "column": 33
+              }
+            },
+            "range": [
+              20,
+              33
+            ],
+            "name": "DefaultExport"
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "start": 41,
+        "end": 49,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 41
+          },
+          "end": {
+            "line": 1,
+            "column": 49
+          }
+        },
+        "range": [
+          41,
+          49
+        ],
+        "value": "bar.js",
+        "raw": "'bar.js'"
+      },
+      "assertions": [
+        {
+          "type": "ImportAttribute",
+          "start": 60,
+          "end": 72,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 60
+            },
+            "end": {
+              "line": 1,
+              "column": 72
+            }
+          },
+          "range": [
+            60,
+            72
+          ],
+          "key": {
+            "type": "Identifier",
+            "start": 60,
+            "end": 64,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 60
+              },
+              "end": {
+                "line": 1,
+                "column": 64
+              }
+            },
+            "range": [
+              60,
+              64
+            ],
+            "name": "type"
+          },
+          "value": {
+            "type": "Literal",
+            "start": 66,
+            "end": 72,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 66
+              },
+              "end": {
+                "line": 1,
+                "column": 72
+              }
+            },
+            "range": [
+              66,
+              72
+            ],
+            "value": "json",
+            "raw": "\"json\""
+          }
+        }
+      ]
+    }
+  ],
+  "sourceType": "module"
+}
