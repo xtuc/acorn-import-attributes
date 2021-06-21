@@ -67,6 +67,91 @@ export function importAssertions(Parser) {
       return this.finishNode(node, "ImportExpression");
     }
 
+    // ported from acorn/src/statement.js pp.parseExport
+    parseExport(node, exports) {
+      this.next();
+      // export * from '...'
+      if (this.eat(tt.star)) {
+        if (this.options.ecmaVersion >= 11) {
+          if (this.eatContextual("as")) {
+            node.exported = this.parseIdent(true);
+            this.checkExport(exports, node.exported.name, this.lastTokStart);
+          } else {
+            node.exported = null;
+          }
+        }
+        this.expectContextual("from");
+        if (this.type !== tt.string) { this.unexpected(); }
+        node.source = this.parseExprAtom();
+
+        if (this.type === this.assertToken) {
+          this.next();
+          const assertions = this.parseImportAssertions();
+          if (assertions) {
+            node.assertions = assertions;
+          }
+        }
+
+        this.semicolon();
+        return this.finishNode(node, "ExportAllDeclaration")
+      }
+      if (this.eat(tt._default)) { // export default ...
+        this.checkExport(exports, "default", this.lastTokStart);
+        var isAsync;
+        if (this.type === tt._function || (isAsync = this.isAsyncFunction())) {
+          var fNode = this.startNode();
+          this.next();
+          if (isAsync) { this.next(); }
+          node.declaration = this.parseFunction(fNode, FUNC_STATEMENT | FUNC_NULLABLE_ID, false, isAsync);
+        } else if (this.type === tt._class) {
+          var cNode = this.startNode();
+          node.declaration = this.parseClass(cNode, "nullableID");
+        } else {
+          node.declaration = this.parseMaybeAssign();
+          this.semicolon();
+        }
+        return this.finishNode(node, "ExportDefaultDeclaration")
+      }
+      // export var|const|let|function|class ...
+      if (this.shouldParseExportStatement()) {
+        node.declaration = this.parseStatement(null);
+        if (node.declaration.type === "VariableDeclaration")
+          { this.checkVariableExport(exports, node.declaration.declarations); }
+        else
+          { this.checkExport(exports, node.declaration.id.name, node.declaration.id.start); }
+        node.specifiers = [];
+        node.source = null;
+      } else { // export { x, y as z } [from '...']
+        node.declaration = null;
+        node.specifiers = this.parseExportSpecifiers(exports);
+        if (this.eatContextual("from")) {
+          if (this.type !== tt.string) { this.unexpected(); }
+          node.source = this.parseExprAtom();
+
+          if (this.type === this.assertToken) {
+            this.next();
+            const assertions = this.parseImportAssertions();
+            if (assertions) {
+              node.assertions = assertions;
+            }
+          }
+        } else {
+          for (var i = 0, list = node.specifiers; i < list.length; i += 1) {
+            // check for keywords used as local names
+            var spec = list[i];
+
+            this.checkUnreserved(spec.local);
+            // check if export is defined
+            this.checkLocalExport(spec.local);
+          }
+
+          node.source = null;
+        }
+        this.semicolon();
+      }
+      return this.finishNode(node, "ExportNamedDeclaration")
+    }
+
     parseImport(node) {
       this.next();
       // import '...'
