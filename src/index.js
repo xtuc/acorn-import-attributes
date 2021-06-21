@@ -1,6 +1,7 @@
 import _acorn from "acorn";
 
 const keyword = "assert";
+const FUNC_STATEMENT = 1, FUNC_HANGING_STATEMENT = 2, FUNC_NULLABLE_ID = 4
 
 export function importAssertions(Parser) {
   // Use supplied version acorn version if present, to avoid
