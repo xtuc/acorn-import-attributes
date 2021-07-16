@@ -39,7 +39,7 @@ export function importAssertions(Parser) {
 
       // ensure that the word is at the correct location
       // ie `assert{...` or `assert {...`
-      if (this._codeAt(i) !== 32 && this._codeAt(i) !== 123) {
+      if (this._codeAt(this.pos + i) !== 32 && this._codeAt(this.pos + i) !== 123) {
         return super.readToken(code);
       }
 
