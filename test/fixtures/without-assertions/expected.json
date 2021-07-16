@@ -1,7 +1,7 @@
 {
   "type": "Program",
   "start": 0,
-  "end": 57,
+  "end": 70,
   "loc": {
     "start": {
       "line": 1,
@@ -14,13 +14,13 @@
   },
   "range": [
     0,
-    57
+    70
   ],
   "body": [
     {
       "type": "ImportDeclaration",
       "start": 0,
-      "end": 26,
+      "end": 35,
       "loc": {
         "start": {
           "line": 1,
@@ -28,18 +28,18 @@
         },
         "end": {
           "line": 1,
-          "column": 26
+          "column": 35
         }
       },
       "range": [
         0,
-        26
+        35
       ],
       "specifiers": [
         {
           "type": "ImportDefaultSpecifier",
           "start": 7,
-          "end": 8,
+          "end": 16,
           "loc": {
             "start": {
               "line": 1,
@@ -47,17 +47,17 @@
             },
             "end": {
               "line": 1,
-              "column": 8
+              "column": 16
             }
           },
           "range": [
             7,
-            8
+            16
           ],
           "local": {
             "type": "Identifier",
             "start": 7,
-            "end": 8,
+            "end": 16,
             "loc": {
               "start": {
                 "line": 1,
@@ -65,34 +65,34 @@
               },
               "end": {
                 "line": 1,
-                "column": 8
+                "column": 16
               }
             },
             "range": [
               7,
-              8
+              16
             ],
-            "name": "a"
+            "name": "assertFoo"
           }
         }
       ],
       "source": {
         "type": "Literal",
-        "start": 14,
-        "end": 26,
+        "start": 22,
+        "end": 34,
         "loc": {
           "start": {
             "line": 1,
-            "column": 14
+            "column": 22
           },
           "end": {
             "line": 1,
-            "column": 26
+            "column": 34
           }
         },
         "range": [
-          14,
-          26
+          22,
+          34
         ],
         "value": "./foo.json",
         "raw": "\"./foo.json\""
@@ -100,8 +100,8 @@
     },
     {
       "type": "ImportDeclaration",
-      "start": 27,
-      "end": 56,
+      "start": 36,
+      "end": 69,
       "loc": {
         "start": {
           "line": 2,
@@ -109,18 +109,18 @@
         },
         "end": {
           "line": 2,
-          "column": 29
+          "column": 33
         }
       },
       "range": [
-        27,
-        56
+        36,
+        69
       ],
       "specifiers": [
         {
           "type": "ImportSpecifier",
-          "start": 36,
-          "end": 39,
+          "start": 45,
+          "end": 52,
           "loc": {
             "start": {
               "line": 2,
@@ -128,17 +128,17 @@
             },
             "end": {
               "line": 2,
-              "column": 12
+              "column": 16
             }
           },
           "range": [
-            36,
-            39
+            45,
+            52
           ],
           "imported": {
             "type": "Identifier",
-            "start": 36,
-            "end": 39,
+            "start": 45,
+            "end": 52,
             "loc": {
               "start": {
                 "line": 2,
@@ -146,19 +146,19 @@
               },
               "end": {
                 "line": 2,
-                "column": 12
+                "column": 16
               }
             },
             "range": [
-              36,
-              39
+              45,
+              52
             ],
-            "name": "foo"
+            "name": "assertF"
           },
           "local": {
             "type": "Identifier",
-            "start": 36,
-            "end": 39,
+            "start": 45,
+            "end": 52,
             "loc": {
               "start": {
                 "line": 2,
@@ -166,34 +166,34 @@
               },
               "end": {
                 "line": 2,
-                "column": 12
+                "column": 16
               }
             },
             "range": [
-              36,
-              39
+              45,
+              52
             ],
-            "name": "foo"
+            "name": "assertF"
           }
         }
       ],
       "source": {
         "type": "Literal",
-        "start": 47,
-        "end": 55,
+        "start": 60,
+        "end": 68,
         "loc": {
           "start": {
             "line": 2,
-            "column": 20
+            "column": 24
           },
           "end": {
             "line": 2,
-            "column": 28
+            "column": 32
           }
         },
         "range": [
-          47,
-          55
+          60,
+          68
         ],
         "value": "./f.js",
         "raw": "\"./f.js\""

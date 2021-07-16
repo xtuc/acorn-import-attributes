@@ -1,2 +1,2 @@
-import a from "./foo.json"
-import { foo } from "./f.js";
+import assertFoo from "./foo.json";
+import { assertF } from "./f.js";
