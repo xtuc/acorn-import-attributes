@@ -35,7 +35,9 @@
     "type": "git",
     "url": "https://github.com/xtuc/acorn-import-assertions"
   },
-  "dependencies": {},
+  "dependencies": {
+    "charcodes": "^0.2.0"
+  },
   "browserslist": [
     "maintained node versions"
   ],

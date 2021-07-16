@@ -1,4 +1,5 @@
 import _acorn from "acorn";
+import { leftCurlyBrace, space } from "charcodes";
 
 const keyword = "assert";
 const FUNC_STATEMENT = 1, FUNC_HANGING_STATEMENT = 2, FUNC_NULLABLE_ID = 4
@@ -37,10 +38,18 @@ export function importAssertions(Parser) {
         }
       }
 
-      // ensure that the word is at the correct location
+      // ensure that the keyword is at the correct location
       // ie `assert{...` or `assert {...`
-      if (this._codeAt(this.pos + i) !== 32 && this._codeAt(this.pos + i) !== 123) {
-        return super.readToken(code);
+      for (;; i++) {
+        if (this._codeAt(this.pos + i) === leftCurlyBrace) {
+          // Found '{'
+          break;
+        } else if (this._codeAt(this.pos + i) === space) {
+          // white space is allowed between `assert` and `{`, so continue.
+          continue;
+        } else {
+          return super.readToken(code);
+        }
       }
 
       // If we're inside a dynamic import expression we'll parse
