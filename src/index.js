@@ -1,4 +1,4 @@
-import _acorn from "acorn";
+import * as _acorn from "acorn";
 import { leftCurlyBrace, space } from "charcodes";
 
 const keyword = "assert";
