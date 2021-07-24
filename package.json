@@ -15,7 +15,7 @@
   "scripts": {
     "test": "mocha ./test/index.js",
     "watch": "babel ./src --out-dir ./lib --watch",
-    "prepublish": "babel ./src --out-dir ./lib && node post-build.js"
+    "prepublishOnly": "babel ./src --out-dir ./lib && node post-build.js"
   },
   "author": "Sven Sauleau <sven@sauleau.com>",
   "license": "MIT",
