@@ -1,5 +1,7 @@
 import * as _acorn from "acorn";
-import { leftCurlyBrace, space } from "charcodes";
+
+const leftCurlyBrace = "{".charCodeAt(0);
+const space = " ".charCodeAt(0);
 
 const keyword = "assert";
 const FUNC_STATEMENT = 1, FUNC_HANGING_STATEMENT = 2, FUNC_NULLABLE_ID = 4
