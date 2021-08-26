@@ -150,7 +150,7 @@ const whitelist = [
 
 run(
   (content, options) =>
-    Parser.parse(content, { sourceType: options.sourceType, ecmaVersion: 11 }),
+    Parser.parse(content, { sourceType: options.sourceType, ecmaVersion: 13 }),
   {
     testsDirectory: path.dirname(require.resolve("test262/package.json")),
     skip: (test) =>
