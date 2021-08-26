@@ -13,10 +13,11 @@
     "./": "./"
   },
   "scripts": {
+    "build": "babel ./src --out-dir ./lib && node post-build.js",
+    "prepublishOnly": "npm run build",
     "test": "mocha ./test/index.js",
     "test:test262": "node run_test262.js",
-    "watch": "babel ./src --out-dir ./lib --watch",
-    "prepublishOnly": "babel ./src --out-dir ./lib && node post-build.js"
+    "watch": "babel ./src --out-dir ./lib --watch"
   },
   "author": "Sven Sauleau <sven@sauleau.com>",
   "license": "MIT",

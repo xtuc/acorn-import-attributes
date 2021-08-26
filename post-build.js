@@ -1,6 +1,6 @@
-const fs = require("fs");
-const path = require("path");
+const { copyFileSync } = require("fs");
+const { join } = require("path");
 
-const src = path.join(__dirname, "src", "index.js");
-const target = path.join(__dirname, "lib", "index.mjs");
-fs.copyFileSync(src, target);
+const src = join(__dirname, "src", "index.js");
+const target = join(__dirname, "lib", "index.mjs");
+copyFileSync(src, target);
