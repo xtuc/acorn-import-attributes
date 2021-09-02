@@ -12,29 +12,21 @@ const unsupportedFeatures = [];
 const implementedFeatures = ["import-assertions", "json-modules"];
 
 const whitelist = [
-  // 4 invalid programs did not produce a parsing error (without a corresponding entry in the whitelist file):
+  // 10 invalid programs did not produce a parsing error (without a corresponding entry in the whitelist file):
   "language/import/json-invalid.js (default)",
   "language/import/json-invalid.js (strict mode)",
   "language/import/json-named-bindings.js (default)",
   "language/import/json-named-bindings.js (strict mode)",
+  "language/module-code/early-dup-assert-key-export.js (default)",
+  "language/module-code/early-dup-assert-key-export.js (strict mode)",
+  "language/module-code/early-dup-assert-key-import-nobinding.js (default)",
+  "language/module-code/early-dup-assert-key-import-nobinding.js (strict mode)",
+  "language/module-code/early-dup-assert-key-import-withbinding.js (default)",
+  "language/module-code/early-dup-assert-key-import-withbinding.js (strict mode)",
 
-  // 127 valid programs produced a parsing error (without a corresponding entry in the whitelist file):
-  "language/module-code/import-assertion-key-identifiername.js (default)",
-  "language/module-code/import-assertion-key-identifiername.js (strict mode)",
-  "language/module-code/import-assertion-key-string-double.js (default)",
-  "language/module-code/import-assertion-key-string-double.js (strict mode)",
-  "language/module-code/import-assertion-key-string-single.js (default)",
-  "language/module-code/import-assertion-key-string-single.js (strict mode)",
-  "language/module-code/import-assertion-many.js (default)",
-  "language/module-code/import-assertion-many.js (strict mode)",
+  // 113 valid programs produced a parsing error (without a corresponding entry in the whitelist file):
   "language/module-code/import-assertion-newlines.js (default)",
   "language/module-code/import-assertion-newlines.js (strict mode)",
-  "language/module-code/import-assertion-trlng-comma.js (default)",
-  "language/module-code/import-assertion-trlng-comma.js (strict mode)",
-  "language/module-code/import-assertion-value-string-double.js (default)",
-  "language/module-code/import-assertion-value-string-double.js (strict mode)",
-  "language/module-code/import-assertion-value-string-single.js (default)",
-  "language/module-code/import-assertion-value-string-single.js (strict mode)",
   "language/expressions/dynamic-import/2nd-param-assert-enumeration-abrupt.js (default)",
   "language/expressions/dynamic-import/2nd-param-assert-enumeration-abrupt.js (strict mode)",
   "language/expressions/dynamic-import/2nd-param-assert-enumeration.js (default)",
