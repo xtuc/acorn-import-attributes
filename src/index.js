@@ -216,10 +216,6 @@ export function importAssertions(Parser) {
         this.next();
         node.key = assertionKeyNode;
 
-        // for now we are only allowing `type` as the only allowed module attribute
-        if (node.key.name !== "type") {
-          this.raise(this.pos, "The only accepted import assertion is `type`");
-        }
         // check if we already have an entry for an attribute
         // if a duplicate entry is found, throw an error
         // for now this logic will come into play only when someone declares `type` twice
