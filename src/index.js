@@ -96,6 +96,7 @@ export function importAssertions(Parser) {
         if (this.type !== tt.string) { this.unexpected(); }
         node.source = this.parseExprAtom();
 
+        node.assertions = null;
         if (this.type === this.assertToken) {
           this.next();
           const assertions = this.parseImportAssertions();
@@ -133,9 +134,11 @@ export function importAssertions(Parser) {
           { this.checkExport(exports, node.declaration.id.name, node.declaration.id.start); }
         node.specifiers = [];
         node.source = null;
+        node.assertions = null;
       } else { // export { x, y as z } [from '...']
         node.declaration = null;
         node.specifiers = this.parseExportSpecifiers(exports);
+        node.assertions = null;
         if (this.eatContextual("from")) {
           if (this.type !== tt.string) { this.unexpected(); }
           node.source = this.parseExprAtom();
@@ -177,6 +180,7 @@ export function importAssertions(Parser) {
           this.type === tt.string ? this.parseExprAtom() : this.unexpected();
       }
 
+      node.assertions = null;
       if (this.type === this.assertToken) {
         this.next();
         const assertions = this.parseImportAssertions();
