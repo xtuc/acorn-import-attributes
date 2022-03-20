@@ -117,7 +117,8 @@
         ],
         "value": "./foo.json",
         "raw": "\"./foo.json\""
-      }
+      },
+      "assertions": null
     }
   ],
   "sourceType": "module"

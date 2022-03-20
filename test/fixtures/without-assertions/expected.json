@@ -96,7 +96,8 @@
         ],
         "value": "./foo.json",
         "raw": "\"./foo.json\""
-      }
+      },
+      "assertions": null
     },
     {
       "type": "ImportDeclaration",
@@ -197,7 +198,8 @@
         ],
         "value": "./f.js",
         "raw": "\"./f.js\""
-      }
+      },
+      "assertions": null
     }
   ],
   "sourceType": "module"
