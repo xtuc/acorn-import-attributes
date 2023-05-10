@@ -1,0 +1,125 @@
+{
+  "type": "Program",
+  "start": 0,
+  "end": 50,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 2,
+      "column": 0
+    }
+  },
+  "range": [
+    0,
+    50
+  ],
+  "body": [
+    {
+      "type": "ExportAllDeclaration",
+      "start": 0,
+      "end": 49,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 49
+        }
+      },
+      "range": [
+        0,
+        49
+      ],
+      "exported": null,
+      "source": {
+        "type": "Literal",
+        "start": 14,
+        "end": 26,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 14
+          },
+          "end": {
+            "line": 1,
+            "column": 26
+          }
+        },
+        "range": [
+          14,
+          26
+        ],
+        "value": "./foo.json",
+        "raw": "\"./foo.json\""
+      },
+      "assertions": [
+        {
+          "type": "ImportAttribute",
+          "start": 34,
+          "end": 46,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 34
+            },
+            "end": {
+              "line": 1,
+              "column": 46
+            }
+          },
+          "range": [
+            34,
+            46
+          ],
+          "key": {
+            "type": "Identifier",
+            "start": 34,
+            "end": 38,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 34
+              },
+              "end": {
+                "line": 1,
+                "column": 38
+              }
+            },
+            "range": [
+              34,
+              38
+            ],
+            "name": "type"
+          },
+          "value": {
+            "type": "Literal",
+            "start": 40,
+            "end": 46,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 40
+              },
+              "end": {
+                "line": 1,
+                "column": 46
+              }
+            },
+            "range": [
+              40,
+              46
+            ],
+            "value": "json",
+            "raw": "\"json\""
+          }
+        }
+      ]
+    }
+  ],
+  "sourceType": "module"
+}
