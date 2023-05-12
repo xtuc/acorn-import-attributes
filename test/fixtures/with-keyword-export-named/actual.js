@@ -1,0 +1,1 @@
+export { json } from "./foo.json" with { type: "json" };
