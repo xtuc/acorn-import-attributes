@@ -1,1 +1,1 @@
-export * as name from "./foo.json" assert { type: "json" }
+export * as name from "./foo.json" with { type: "json" }

@@ -1,1 +1,1 @@
-function assertValidProps() {}
+function withValidProps() {}

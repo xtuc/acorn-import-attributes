@@ -1,1 +1,1 @@
-export { default as DefaultExport } from 'bar.js'  assert { type: "json" };
+export { default as DefaultExport } from 'bar.js'  with { type: "json" };

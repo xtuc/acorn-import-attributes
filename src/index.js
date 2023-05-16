@@ -3,10 +3,10 @@ import * as _acorn from "acorn";
 const leftCurlyBrace = "{".charCodeAt(0);
 const space = " ".charCodeAt(0);
 
-const keyword = "assert";
+const keyword = "with";
 const FUNC_STATEMENT = 1, FUNC_HANGING_STATEMENT = 2, FUNC_NULLABLE_ID = 4
 
-export function importAssertions(Parser) {
+export function importAttributes(Parser) {
   // Use supplied version acorn version if present, to avoid
   // reference mismatches due to different acorn versions. This
   // allows this plugin to be used with Rollup which supplies
@@ -18,7 +18,7 @@ export function importAssertions(Parser) {
   return class extends Parser {
     constructor(...args) {
       super(...args);
-      this.assertToken = new TokenType(keyword);
+      this.withToken = new TokenType(keyword);
     }
 
     _codeAt(i) {
@@ -41,13 +41,13 @@ export function importAssertions(Parser) {
       }
 
       // ensure that the keyword is at the correct location
-      // ie `assert{...` or `assert {...`
+      // ie `with{...` or `with {...`
       for (;; i++) {
         if (this._codeAt(this.pos + i) === leftCurlyBrace) {
           // Found '{'
           break;
         } else if (this._codeAt(this.pos + i) === space) {
-          // white space is allowed between `assert` and `{`, so continue.
+          // white space is allowed between `with` and `{`, so continue.
           continue;
         } else {
           return super.readToken(code);
@@ -55,14 +55,14 @@ export function importAssertions(Parser) {
       }
 
       // If we're inside a dynamic import expression we'll parse
-      // the `assert` keyword as a standard object property name
-      // ie `import(""./foo.json", { assert: { type: "json" } })`
+      // the `with` keyword as a standard object property name
+      // ie `import(""./foo.json", { with: { type: "json" } })`
       if (this.type.label === "{") {
         return super.readToken(code);
       }
 
       this.pos += keyword.length;
-      return this.finishToken(this.assertToken);
+      return this.finishToken(this.withToken);
     }
 
     parseDynamicImport(node) {
@@ -96,11 +96,11 @@ export function importAssertions(Parser) {
         if (this.type !== tt.string) { this.unexpected(); }
         node.source = this.parseExprAtom();
 
-        if (this.type === this.assertToken || this.type === tt._with) {
+        if (this.type === this.withToken || this.type === tt._with) {
           this.next();
-          const assertions = this.parseImportAssertions();
-          if (assertions) {
-            node.assertions = assertions;
+          const attributes = this.parseImportAttributes();
+          if (attributes) {
+            node.attributes = attributes;
           }
         }
 
@@ -140,11 +140,11 @@ export function importAssertions(Parser) {
           if (this.type !== tt.string) { this.unexpected(); }
           node.source = this.parseExprAtom();
 
-          if (this.type === this.assertToken || this.type === tt._with) {
+          if (this.type === this.withToken || this.type === tt._with) {
             this.next();
-            const assertions = this.parseImportAssertions();
-            if (assertions) {
-              node.assertions = assertions;
+            const attributes = this.parseImportAttributes();
+            if (attributes) {
+              node.attributes = attributes;
             }
           }
         } else {
@@ -177,25 +177,25 @@ export function importAssertions(Parser) {
           this.type === tt.string ? this.parseExprAtom() : this.unexpected();
       }
 
-      if (this.type === this.assertToken || this.type == tt._with) {
+      if (this.type === this.withToken || this.type == tt._with) {
         this.next();
-        const assertions = this.parseImportAssertions();
-        if (assertions) {
-          node.assertions = assertions;
+        const attributes = this.parseImportAttributes();
+        if (attributes) {
+          node.attributes = attributes;
         }
       }
       this.semicolon();
       return this.finishNode(node, "ImportDeclaration");
     }
 
-    parseImportAssertions() {
+    parseImportAttributes() {
       this._eat(tt.braceL);
-      const attrs = this.parseAssertEntries();
+      const attrs = this.parsewithEntries();
       this._eat(tt.braceR);
       return attrs;
     }
 
-    parseAssertEntries() {
+    parsewithEntries() {
       const attrs = [];
       const attrNames = new Set();
 
@@ -206,28 +206,28 @@ export function importAssertions(Parser) {
 
         const node = this.startNode();
 
-        // parse AssertionKey : IdentifierName, StringLiteral
-        let assertionKeyNode;
+        // parse withionKey : IdentifierName, StringLiteral
+        let withionKeyNode;
         if (this.type === tt.string) {
-          assertionKeyNode = this.parseLiteral(this.value);
+          withionKeyNode = this.parseLiteral(this.value);
         } else {
-          assertionKeyNode = this.parseIdent(true);
+          withionKeyNode = this.parseIdent(true);
         }
         this.next();
-        node.key = assertionKeyNode;
+        node.key = withionKeyNode;
 
         // check if we already have an entry for an attribute
         // if a duplicate entry is found, throw an error
         // for now this logic will come into play only when someone declares `type` twice
         if (attrNames.has(node.key.name)) {
-          this.raise(this.pos, "Duplicated key in assertions");
+          this.raise(this.pos, "Duplicated key in attributes");
         }
         attrNames.add(node.key.name);
 
         if (this.type !== tt.string) {
           this.raise(
             this.pos,
-            "Only string is supported as an assertion value"
+            "Only string is supported as an attribute value"
           );
         }
 

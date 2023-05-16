@@ -12,7 +12,7 @@ const testFolders = readdirSync(FIXTURE_PATH).filter(file => (
 
 const updateMode = process.env.UPDATE_TESTS === '1';
 
-describe('acorn-import-assertions', () => {
+describe('acorn-import-attributes', () => {
   testFolders.forEach((folderName) => {
     it(`should parse ${folderName}`, () => {
       const actual = readFileSync(join(FIXTURE_PATH, folderName, 'actual.js'), 'utf8');

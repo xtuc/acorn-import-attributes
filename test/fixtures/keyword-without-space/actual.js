@@ -1,1 +1,1 @@
-import a from "b" assert{ type: "c" };
+import a from "b" with{ type: "c" };

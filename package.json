@@ -1,7 +1,7 @@
 {
-  "name": "acorn-import-assertions",
+  "name": "acorn-import-attributes",
   "version": "1.9.0",
-  "description": "Support for import assertions in acorn",
+  "description": "Support for import attributes in acorn",
   "main": "lib/index.js",
   "module": "src/index.js",
   "exports": {
@@ -37,7 +37,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/xtuc/acorn-import-assertions"
+    "url": "https://github.com/xtuc/acorn-import-attributes"
   },
   "browserslist": [
     "maintained node versions"

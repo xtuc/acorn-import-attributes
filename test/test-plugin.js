@@ -1,7 +1,7 @@
 import * as acorn from 'acorn';
-import { importAssertions } from '../src/index';
+import { importAttributes } from '../src/index';
 
-const Parser = acorn.Parser.extend(importAssertions);
+const Parser = acorn.Parser.extend(importAttributes);
 
 export default function testPlugin(code) {
   let result;

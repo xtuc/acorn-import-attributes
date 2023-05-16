@@ -1,7 +1,7 @@
 {
   "type": "Program",
   "start": 0,
-  "end": 39,
+  "end": 37,
   "loc": {
     "start": {
       "line": 1,
@@ -14,13 +14,13 @@
   },
   "range": [
     0,
-    39
+    37
   ],
   "body": [
     {
       "type": "ImportDeclaration",
       "start": 0,
-      "end": 38,
+      "end": 36,
       "loc": {
         "start": {
           "line": 1,
@@ -28,12 +28,12 @@
         },
         "end": {
           "line": 1,
-          "column": 38
+          "column": 36
         }
       },
       "range": [
         0,
-        38
+        36
       ],
       "specifiers": [
         {
@@ -97,62 +97,62 @@
         "value": "b",
         "raw": "\"b\""
       },
-      "assertions": [
+      "attributes": [
         {
           "type": "ImportAttribute",
-          "start": 26,
-          "end": 35,
+          "start": 24,
+          "end": 33,
           "loc": {
             "start": {
               "line": 1,
-              "column": 26
+              "column": 24
             },
             "end": {
               "line": 1,
-              "column": 35
+              "column": 33
             }
           },
           "range": [
-            26,
-            35
+            24,
+            33
           ],
           "key": {
             "type": "Identifier",
-            "start": 26,
-            "end": 30,
+            "start": 24,
+            "end": 28,
             "loc": {
               "start": {
                 "line": 1,
-                "column": 26
+                "column": 24
               },
               "end": {
                 "line": 1,
-                "column": 30
+                "column": 28
               }
             },
             "range": [
-              26,
-              30
+              24,
+              28
             ],
             "name": "type"
           },
           "value": {
             "type": "Literal",
-            "start": 32,
-            "end": 35,
+            "start": 30,
+            "end": 33,
             "loc": {
               "start": {
                 "line": 1,
-                "column": 32
+                "column": 30
               },
               "end": {
                 "line": 1,
-                "column": 35
+                "column": 33
               }
             },
             "range": [
-              32,
-              35
+              30,
+              33
             ],
             "value": "c",
             "raw": "\"c\""

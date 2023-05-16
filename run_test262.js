@@ -5,11 +5,11 @@
 const path = require("path");
 const run = require("test262-parser-runner");
 const acorn = require("acorn");
-const Parser = acorn.Parser.extend(require(".").importAssertions);
+const Parser = acorn.Parser.extend(require(".").importAttributes);
 
 const unsupportedFeatures = [];
 
-const implementedFeatures = ["import-assertions", "json-modules"];
+const implementedFeatures = ["import-attributes", "json-modules"];
 
 const whitelist = [
   // 10 invalid programs did not produce a parsing error (without a corresponding entry in the whitelist file):

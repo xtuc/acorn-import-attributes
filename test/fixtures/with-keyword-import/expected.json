@@ -97,7 +97,7 @@
         "value": "./foo.json",
         "raw": "\"./foo.json\""
       },
-      "assertions": [
+      "attributes": [
         {
           "type": "ImportAttribute",
           "start": 37,

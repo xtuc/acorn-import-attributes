@@ -1,7 +1,7 @@
 {
   "type": "Program",
   "start": 0,
-  "end": 59,
+  "end": 57,
   "loc": {
     "start": {
       "line": 1,
@@ -14,13 +14,13 @@
   },
   "range": [
     0,
-    59
+    57
   ],
   "body": [
     {
       "type": "ExportAllDeclaration",
       "start": 0,
-      "end": 58,
+      "end": 56,
       "loc": {
         "start": {
           "line": 1,
@@ -28,12 +28,12 @@
         },
         "end": {
           "line": 1,
-          "column": 58
+          "column": 56
         }
       },
       "range": [
         0,
-        58
+        56
       ],
       "exported": {
         "type": "Identifier",
@@ -76,62 +76,62 @@
         "value": "./foo.json",
         "raw": "\"./foo.json\""
       },
-      "assertions": [
+      "attributes": [
         {
           "type": "ImportAttribute",
-          "start": 44,
-          "end": 56,
+          "start": 42,
+          "end": 54,
           "loc": {
             "start": {
               "line": 1,
-              "column": 44
+              "column": 42
             },
             "end": {
               "line": 1,
-              "column": 56
+              "column": 54
             }
           },
           "range": [
-            44,
-            56
+            42,
+            54
           ],
           "key": {
             "type": "Identifier",
-            "start": 44,
-            "end": 48,
+            "start": 42,
+            "end": 46,
             "loc": {
               "start": {
                 "line": 1,
-                "column": 44
+                "column": 42
               },
               "end": {
                 "line": 1,
-                "column": 48
+                "column": 46
               }
             },
             "range": [
-              44,
-              48
+              42,
+              46
             ],
             "name": "type"
           },
           "value": {
             "type": "Literal",
-            "start": 50,
-            "end": 56,
+            "start": 48,
+            "end": 54,
             "loc": {
               "start": {
                 "line": 1,
-                "column": 50
+                "column": 48
               },
               "end": {
                 "line": 1,
-                "column": 56
+                "column": 54
               }
             },
             "range": [
-              50,
-              56
+              48,
+              54
             ],
             "value": "json",
             "raw": "\"json\""

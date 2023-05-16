@@ -1,4 +1,10 @@
-# Support for import assertions in acorn
+# Support for import attributes in acorn
+
+## Install
+
+```
+yarn add acorn-import-attributes
+```
 
 ## Usage
 
@@ -6,8 +12,8 @@ This module provides a plugin that can be used to extend the Acorn Parser class:
 
 ```js
 const {Parser} = require('acorn');
-const {importAssertions} = require('acorn-import-assertions');
-Parser.extend(importAssertions).parse('...');
+const {importAttributes} = require('acorn-import-attributes');
+Parser.extend(importAttributes).parse('...');
 ```
 
 ## License
