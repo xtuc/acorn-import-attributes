@@ -72,8 +72,8 @@ export function importAttributes(Parser) {
       node.source = this.parseMaybeAssign();
 
       if (this.eat(tt.comma)) {
-        const obj = this.parseObj(false);
-        node.arguments = [obj];
+        const expr = this.parseExpression();
+        node.arguments = [expr];
       }
       this._eat(tt.parenR);
       return this.finishNode(node, "ImportExpression");
