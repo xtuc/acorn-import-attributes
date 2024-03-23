@@ -3,10 +3,21 @@ import * as _acorn from "acorn";
 const leftCurlyBrace = "{".charCodeAt(0);
 const space = " ".charCodeAt(0);
 
-const keyword = "with";
+const withKeyword = "with";
+const assertKeyword = "assert";
 const FUNC_STATEMENT = 1, FUNC_HANGING_STATEMENT = 2, FUNC_NULLABLE_ID = 4
 
-export function importAttributes(Parser) {
+export const importAttributes = plugin({ keyword: "with" });
+export const importAssertions = plugin({ keyword: "assert" });
+export const importAttributesOrAssertions = plugin({ keyword: "with-assert" })
+
+function plugin(options) {
+  return function(Parser) {
+    return pluginImpl(options, Parser);
+  };
+}
+
+function pluginImpl(options, Parser) {
   // Use supplied version acorn version if present, to avoid
   // reference mismatches due to different acorn versions. This
   // allows this plugin to be used with Rollup which supplies
@@ -14,11 +25,16 @@ export function importAttributes(Parser) {
   // the package manager.
   const acorn = Parser.acorn || _acorn;
   const { tokTypes: tt, TokenType } = acorn;
+  const { keyword } = options;
+  const isWithKeyword = keyword.includes(withKeyword);
+  const isAssertKeyword = keyword.includes(assertKeyword);
+  const isWithOrAssertKeyword = isWithKeyword && isAssertKeyword;
 
   return class extends Parser {
     constructor(...args) {
       super(...args);
-      this.withToken = new TokenType(keyword);
+      this.withToken = isWithKeyword && new TokenType(withKeyword);
+      this.assertToken = isAssertKeyword && new TokenType(assertKeyword);
     }
 
     _codeAt(i) {
@@ -32,11 +48,41 @@ export function importAttributes(Parser) {
       this.next();
     }
 
+    _matchKeywordToken() {
+      return (isWithOrAssertKeyword && (this.type === this.withToken || this.type === this.assertToken))
+        || (isWithKeyword && this.type === this.withToken)
+        || (isAssertKeyword && this.type === this.assertToken)
+    }
+
+    _getProperty() {
+      if (isWithOrAssertKeyword) {
+        return this.type === this.withToken ? "attributes" : "assertions";
+      }
+      return isWithKeyword ? "attributes" : "assertions";
+    }
+
     readToken(code) {
       let i = 0;
-      for (; i < keyword.length; i++) {
-        if (this._codeAt(this.pos + i) !== keyword.charCodeAt(i)) {
+      let keyword;
+      let token;
+      if (isWithOrAssertKeyword) {
+        if (this.input.slice(this.pos, this.pos + withKeyword.length) === withKeyword) {
+          keyword = withKeyword;
+          token = this.withToken;
+        } else if (this.input.slice(this.pos, this.pos + assertKeyword.length) === assertKeyword) {
+          keyword = assertKeyword;
+          token = this.assertToken;
+        } else {
           return super.readToken(code);
+        }
+        i += keyword.length;
+      } else {
+        keyword = isWithKeyword ? withKeyword : assertKeyword;
+        token = isWithKeyword ? this.withToken : this.assertToken;
+        for (; i < keyword.length; i++) {
+          if (this._codeAt(this.pos + i) !== keyword.charCodeAt(i)) {
+            return super.readToken(code);
+          }
         }
       }
 
@@ -62,7 +108,7 @@ export function importAttributes(Parser) {
       }
 
       this.pos += keyword.length;
-      return this.finishToken(this.withToken);
+      return this.finishToken(token);
     }
 
     parseDynamicImport(node) {
@@ -96,11 +142,11 @@ export function importAttributes(Parser) {
         if (this.type !== tt.string) { this.unexpected(); }
         node.source = this.parseExprAtom();
 
-        if (this.type === this.withToken || this.type === tt._with) {
+        if (this._matchKeywordToken()) {
           this.next();
           const attributes = this.parseImportAttributes();
           if (attributes) {
-            node.attributes = attributes;
+            node[this._getProperty()] = attributes;
           }
         }
 
@@ -140,11 +186,11 @@ export function importAttributes(Parser) {
           if (this.type !== tt.string) { this.unexpected(); }
           node.source = this.parseExprAtom();
 
-          if (this.type === this.withToken || this.type === tt._with) {
+          if (this._matchKeywordToken()) {
             this.next();
             const attributes = this.parseImportAttributes();
             if (attributes) {
-              node.attributes = attributes;
+              node[this._getProperty()] = attributes;
             }
           }
         } else {
@@ -177,11 +223,11 @@ export function importAttributes(Parser) {
           this.type === tt.string ? this.parseExprAtom() : this.unexpected();
       }
 
-      if (this.type === this.withToken || this.type == tt._with) {
+      if (this._matchKeywordToken()) {
         this.next();
         const attributes = this.parseImportAttributes();
         if (attributes) {
-          node.attributes = attributes;
+          node[this._getProperty()] = attributes;
         }
       }
       this.semicolon();
