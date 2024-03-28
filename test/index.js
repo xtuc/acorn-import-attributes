@@ -15,7 +15,6 @@ const updateMode = process.env.UPDATE_TESTS === '1';
 
 describe('acorn-import-attributes', () => {
   testFolders.forEach((folderName) => {
-    // let folderName = 'attributes-assertions-with'
     it(`should parse ${folderName}`, async () => {
       const actual = readFileSync(join(FIXTURE_PATH, folderName, 'actual.js'), 'utf8');
       const expectedFile = join(FIXTURE_PATH, folderName, 'expected.json');
