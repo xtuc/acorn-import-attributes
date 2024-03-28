@@ -143,10 +143,11 @@ function pluginImpl(options, Parser) {
         node.source = this.parseExprAtom();
 
         if (this._matchKeywordToken()) {
+          const property = this._getProperty();
           this.next();
           const attributes = this.parseImportAttributes();
           if (attributes) {
-            node[this._getProperty()] = attributes;
+            node[property] = attributes;
           }
         }
 
@@ -187,10 +188,11 @@ function pluginImpl(options, Parser) {
           node.source = this.parseExprAtom();
 
           if (this._matchKeywordToken()) {
+            const property = this._getProperty();
             this.next();
             const attributes = this.parseImportAttributes();
             if (attributes) {
-              node[this._getProperty()] = attributes;
+              node[property] = attributes;
             }
           }
         } else {
@@ -224,10 +226,11 @@ function pluginImpl(options, Parser) {
       }
 
       if (this._matchKeywordToken()) {
+        const property = this._getProperty();
         this.next();
         const attributes = this.parseImportAttributes();
         if (attributes) {
-          node[this._getProperty()] = attributes;
+          node[property] = attributes;
         }
       }
       this.semicolon();
