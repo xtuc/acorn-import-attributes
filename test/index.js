@@ -1,8 +1,9 @@
 import { expect } from 'chai';
 import { join } from 'path';
-import { readdirSync, writeFileSync, statSync, readFileSync } from 'fs';
+import { readdirSync, writeFileSync, statSync, readFileSync, existsSync } from 'fs';
 
-import plugin from './test-plugin.js';
+import { importAttributes, importAssertions, importAttributesOrAssertions } from "../src/index.js";
+import testPlugin from './test-plugin.js';
 
 const FIXTURE_PATH = join(__dirname, 'fixtures');
 
@@ -14,10 +15,16 @@ const updateMode = process.env.UPDATE_TESTS === '1';
 
 describe('acorn-import-attributes', () => {
   testFolders.forEach((folderName) => {
-    it(`should parse ${folderName}`, () => {
+    // let folderName = 'attributes-assertions-with'
+    it(`should parse ${folderName}`, async () => {
       const actual = readFileSync(join(FIXTURE_PATH, folderName, 'actual.js'), 'utf8');
       const expectedFile = join(FIXTURE_PATH, folderName, 'expected.json');
-      const result = plugin(actual);
+      const plugin = folderName.startsWith("assertions")
+        ? importAssertions
+        : folderName.startsWith("attributes-assertions")
+        ? importAttributesOrAssertions
+        : importAttributes;
+      const result = testPlugin(actual, plugin);
       let expected;
 
       // This lets us auto-generate test expected files easily:

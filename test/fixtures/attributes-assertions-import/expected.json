@@ -1,0 +1,308 @@
+{
+  "type": "Program",
+  "start": 0,
+  "end": 107,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 3,
+      "column": 0
+    }
+  },
+  "range": [
+    0,
+    107
+  ],
+  "body": [
+    {
+      "type": "ImportDeclaration",
+      "start": 0,
+      "end": 56,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 56
+        }
+      },
+      "range": [
+        0,
+        56
+      ],
+      "specifiers": [
+        {
+          "type": "ImportNamespaceSpecifier",
+          "start": 7,
+          "end": 13,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 7
+            },
+            "end": {
+              "line": 1,
+              "column": 13
+            }
+          },
+          "range": [
+            7,
+            13
+          ],
+          "local": {
+            "type": "Identifier",
+            "start": 12,
+            "end": 13,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 12
+              },
+              "end": {
+                "line": 1,
+                "column": 13
+              }
+            },
+            "range": [
+              12,
+              13
+            ],
+            "name": "a"
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "start": 19,
+        "end": 31,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 19
+          },
+          "end": {
+            "line": 1,
+            "column": 31
+          }
+        },
+        "range": [
+          19,
+          31
+        ],
+        "value": "./foo.json",
+        "raw": "\"./foo.json\""
+      },
+      "assertions": [
+        {
+          "type": "ImportAttribute",
+          "start": 41,
+          "end": 53,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 41
+            },
+            "end": {
+              "line": 1,
+              "column": 53
+            }
+          },
+          "range": [
+            41,
+            53
+          ],
+          "key": {
+            "type": "Identifier",
+            "start": 41,
+            "end": 45,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 41
+              },
+              "end": {
+                "line": 1,
+                "column": 45
+              }
+            },
+            "range": [
+              41,
+              45
+            ],
+            "name": "type"
+          },
+          "value": {
+            "type": "Literal",
+            "start": 47,
+            "end": 53,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 47
+              },
+              "end": {
+                "line": 1,
+                "column": 53
+              }
+            },
+            "range": [
+              47,
+              53
+            ],
+            "value": "json",
+            "raw": "\"json\""
+          }
+        }
+      ]
+    },
+    {
+      "type": "ImportDeclaration",
+      "start": 57,
+      "end": 106,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 0
+        },
+        "end": {
+          "line": 2,
+          "column": 49
+        }
+      },
+      "range": [
+        57,
+        106
+      ],
+      "specifiers": [
+        {
+          "type": "ImportDefaultSpecifier",
+          "start": 64,
+          "end": 65,
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 7
+            },
+            "end": {
+              "line": 2,
+              "column": 8
+            }
+          },
+          "range": [
+            64,
+            65
+          ],
+          "local": {
+            "type": "Identifier",
+            "start": 64,
+            "end": 65,
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 7
+              },
+              "end": {
+                "line": 2,
+                "column": 8
+              }
+            },
+            "range": [
+              64,
+              65
+            ],
+            "name": "b"
+          }
+        }
+      ],
+      "source": {
+        "type": "Literal",
+        "start": 71,
+        "end": 83,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 14
+          },
+          "end": {
+            "line": 2,
+            "column": 26
+          }
+        },
+        "range": [
+          71,
+          83
+        ],
+        "value": "./foo.json",
+        "raw": "\"./foo.json\""
+      },
+      "attributes": [
+        {
+          "type": "ImportAttribute",
+          "start": 91,
+          "end": 103,
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 34
+            },
+            "end": {
+              "line": 2,
+              "column": 46
+            }
+          },
+          "range": [
+            91,
+            103
+          ],
+          "key": {
+            "type": "Identifier",
+            "start": 91,
+            "end": 95,
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 34
+              },
+              "end": {
+                "line": 2,
+                "column": 38
+              }
+            },
+            "range": [
+              91,
+              95
+            ],
+            "name": "type"
+          },
+          "value": {
+            "type": "Literal",
+            "start": 97,
+            "end": 103,
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 40
+              },
+              "end": {
+                "line": 2,
+                "column": 46
+              }
+            },
+            "range": [
+              97,
+              103
+            ],
+            "value": "json",
+            "raw": "\"json\""
+          }
+        }
+      ]
+    }
+  ],
+  "sourceType": "module"
+}
