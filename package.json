@@ -1,6 +1,6 @@
 {
   "name": "acorn-import-attributes",
-  "version": "1.9.4",
+  "version": "1.9.5",
   "description": "Support for import attributes in acorn",
   "main": "lib/index.js",
   "module": "src/index.js",
