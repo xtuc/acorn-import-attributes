@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import { join } from 'path';
-import { readdirSync, writeFileSync, statSync, readFileSync, existsSync } from 'fs';
+import { readdirSync, writeFileSync, statSync, readFileSync } from 'fs';
 
 import { importAttributes, importAssertions, importAttributesOrAssertions } from "../src/index.js";
 import testPlugin from './test-plugin.js';
@@ -15,7 +15,7 @@ const updateMode = process.env.UPDATE_TESTS === '1';
 
 describe('acorn-import-attributes', () => {
   testFolders.forEach((folderName) => {
-    it(`should parse ${folderName}`, async () => {
+    it(`should parse ${folderName}`, () => {
       const actual = readFileSync(join(FIXTURE_PATH, folderName, 'actual.js'), 'utf8');
       const expectedFile = join(FIXTURE_PATH, folderName, 'expected.json');
       const plugin = folderName.startsWith("assertions")
