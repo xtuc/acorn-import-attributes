@@ -1,11 +1,9 @@
 import * as acorn from 'acorn';
-import { importAttributes } from '../src/index';
 
-const Parser = acorn.Parser.extend(importAttributes);
-
-export default function testPlugin(code) {
+export default function testPlugin(code, plugin) {
   let result;
   try {
+    const Parser = acorn.Parser.extend(plugin);
     result = Parser.parse(code, {
       ecmaVersion: 12,
       locations: true,
