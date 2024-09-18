@@ -1,0 +1,145 @@
+{
+  "type": "Program",
+  "start": 0,
+  "end": 57,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 2,
+      "column": 0
+    }
+  },
+  "range": [
+    0,
+    57
+  ],
+  "body": [
+    {
+      "type": "ExportAllDeclaration",
+      "start": 0,
+      "end": 56,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 56
+        }
+      },
+      "range": [
+        0,
+        56
+      ],
+      "exported": {
+        "type": "Literal",
+        "start": 12,
+        "end": 16,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 12
+          },
+          "end": {
+            "line": 1,
+            "column": 16
+          }
+        },
+        "range": [
+          12,
+          16
+        ],
+        "value": "xx",
+        "raw": "\"xx\""
+      },
+      "source": {
+        "type": "Literal",
+        "start": 22,
+        "end": 34,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 22
+          },
+          "end": {
+            "line": 1,
+            "column": 34
+          }
+        },
+        "range": [
+          22,
+          34
+        ],
+        "value": "./foo.json",
+        "raw": "\"./foo.json\""
+      },
+      "attributes": [
+        {
+          "type": "ImportAttribute",
+          "start": 42,
+          "end": 54,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 42
+            },
+            "end": {
+              "line": 1,
+              "column": 54
+            }
+          },
+          "range": [
+            42,
+            54
+          ],
+          "key": {
+            "type": "Identifier",
+            "start": 42,
+            "end": 46,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 42
+              },
+              "end": {
+                "line": 1,
+                "column": 46
+              }
+            },
+            "range": [
+              42,
+              46
+            ],
+            "name": "type"
+          },
+          "value": {
+            "type": "Literal",
+            "start": 48,
+            "end": 54,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 48
+              },
+              "end": {
+                "line": 1,
+                "column": 54
+              }
+            },
+            "range": [
+              48,
+              54
+            ],
+            "value": "json",
+            "raw": "\"json\""
+          }
+        }
+      ]
+    }
+  ],
+  "sourceType": "module"
+}
