@@ -132,8 +132,8 @@ function pluginImpl(options, Parser) {
       if (this.eat(tt.star)) {
         if (this.options.ecmaVersion >= 11) {
           if (this.eatContextual("as")) {
-            node.exported = this.parseIdent(true);
-            this.checkExport(exports, node.exported.name, this.lastTokStart);
+            node.exported = this.parseExprAtom();
+            this.checkExport(exports, node.exported, this.lastTokStart);
           } else {
             node.exported = null;
           }
